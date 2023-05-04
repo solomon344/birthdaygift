@@ -1,0 +1,34 @@
+{% extends 'partials/base.html' %} {% load static %} {% block content %}
+{% block link %}active text-semibold{% endblock %}
+<div class="cont2">
+<div id="carouselExampleSlidesOnly" class="carousel slide theme " data-bs-ride="carousel" data-interval="600">
+    <div  class="carousel-inner ">
+      <div class="carousel-item active itm  theme">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDpYi3bkgVX-a1Uo_UNVlOmZPLmbUnQnC5MQ&usqp=CAU" class="d-block w-100 img " alt="...">
+      </div>
+      {% for wish in data %}
+      <div class="carousel-item  itm  theme">
+        <img src="{{ wish.img }}" class="d-block w-100 img " alt="...">
+        <div class="carousel-caption fw-bolder text-bg-secondary bg-opacity-10   d-sm-block d-md-block">
+          <h5 class="z-index-100">Happy Birthday My love</h5>
+          <p>{{ wish.text }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+<div class="cont them">
+  <div class="row  m-2 overflow-y-scroll overflow-x-hidden theme">
+    {% for wish in data %}
+    <div class="col-4">
+      <img src="{{  wish.img }}" class="d-block w-100" alt="..." />
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

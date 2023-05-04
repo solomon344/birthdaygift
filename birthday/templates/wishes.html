@@ -1,0 +1,68 @@
+{% extends 'partials/base.html' %}
+{% load static %} {% block content %}
+{% block linkcol %}active text-semibold{% endblock %}
+<div class="container mt-5">
+  <div class="row mt-3 g-2" id="imgcont">
+    {% for img in images %}
+    <div class="col-4 it" >
+      <img src="{{ img.picture.url }}" data-bs-toggle="modal"
+  data-bs-target="#exampleModal" class="d-block w-100 img im " alt="..." />
+    </div>
+    {% endfor %}
+  </div>
+  <div
+    class="modal fade modal"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class=" modal-dialog
+    modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-body itm2">
+          <div id="carouselExample" class="carousel slide itm2">
+            <div class="carousel-inner itm2" id="modalcont">
+              <div class="carousel-item active itm3">
+                <img src="/media/media/1.jpg" class="d-block w-100 img" alt="..." />
+              </div>
+              {% for img in images %}
+              <div class="carousel-item itm3">
+                <img src="{{ img.picture.url }}" class="d-block w-100 img" alt="..." />
+              </div>
+              {% endfor %}
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+</script>
+{% endblock %}
